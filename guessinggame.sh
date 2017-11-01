@@ -7,6 +7,11 @@
 #	     or high and they prompt to try again
 #	 3.  the pgm doesn't end until the user guess the number of files
 
+function ask {
+	echo "How many files are in current directory?"
+	read guess
+}
+
 let numfiles=$(ls . | wc -l)
 
 echo "Hi my friend! My name is GuessingGame and I challenge you."
@@ -21,8 +26,7 @@ do
 	else
 		echo "The number of files in the current directory is higher than $guess"
 	fi
-	echo "How many files are in the current directory?"
-	read guess
+	ask
 done
 
 echo "Congratulations! You guessed it: there are $numfiles files in the current directory"
