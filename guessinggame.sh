@@ -7,8 +7,17 @@
 #	     or high and they prompt to try again
 #	 3.  the pgm doesn't end until the user guess the number of files
 
-echo "Hi my friend! My name is GUESSINGGAME and I challenge you."
-echo "How many files are in current directory?"
+let numfiles=$(ls . | wc -l)
+
+echo "Hi my friend! My name is GuessingGame and I challenge you."
+echo "How many files are in the current directory?"
 read guess
 
-echo "$guess"
+while [[ $guess -ne $numfiles ]]
+do
+	echo "How many files are in the current directory?"
+	read guess
+done
+
+echo "Congratulations! You guessed it: there are $numfiles files in the current directory"
+echo "Thank you for playing with me, bye bye!!!"
