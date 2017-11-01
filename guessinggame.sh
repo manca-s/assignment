@@ -15,6 +15,12 @@ read guess
 
 while [[ $guess -ne $numfiles ]]
 do
+	if [[ $guess -gt $numfiles ]] 
+	then 
+		echo "The number of files in the current directory is lower than $guess"
+	else
+		echo "The number of files in the current directory is higher than $guess"
+	fi
 	echo "How many files are in the current directory?"
 	read guess
 done
