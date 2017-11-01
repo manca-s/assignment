@@ -10,13 +10,17 @@
 function ask {
 	echo "How many files are in current directory?"
 	read guess
+	if ! [[ $guess =~ ^[0-9]+$ ]]
+	then
+		echo "The guess should be a number"
+		ask
+	fi
 }
 
 let numfiles=$(ls . | wc -l)
 
 echo "Hi my friend! My name is GuessingGame and I challenge you."
-echo "How many files are in the current directory?"
-read guess
+ask
 
 while [[ $guess -ne $numfiles ]]
 do
